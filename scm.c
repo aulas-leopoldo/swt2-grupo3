@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <time.h>
 
 void soma(int a, int b) {
     printf("%d + %d = %d\n", a, b, a + b);
@@ -23,9 +24,16 @@ void divide(int a, int b){
 
 int main() {
     char user_name[30];
-    printf("Digite o nome do usuário: ");
+    
+    time_t total;
+    struct tm *data;
+    time(&total);
+
+    printf("\nDigite o nome do usuario: ");
     scanf("%s", user_name);
-    printf("Olá, %s!\n", user_name);
+
+    printf("\nOla, %s!\n", user_name);
+    printf("Data atual: %s\n", asctime(localtime(&total)));
     soma(5, 3);
     multiplica(5, 3);
     return 0;
